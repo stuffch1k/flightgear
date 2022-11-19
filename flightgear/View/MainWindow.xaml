@@ -13,11 +13,11 @@
         <Button x:Name="button2"  Width="100" Height="30" Content="Connect" 
                 Click="Connect_onClick" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 70"/>
         <Button x:Name="button3"  Width="100" Height="30" Content="Disconnect" 
-                Click="Disconnect" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 100"/>
+                Click="Disconnect_onClick" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 100"/>
         <Button x:Name="button4"  Width="100" Height="30" Content="TestDrive" 
                 Click="TestDrive" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 130"/>
         <Button x:Name="button5"  Width="100" Height="30" Content="Takeoff" 
-                Click="TakeOff" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 160"/>
+                Click="Start_onClick" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 160"/>
         
         <Slider x:Name="Val" Value="0" Minimum="-1" Maximum="0" Orientation="Vertical" Width="30" Height="200" 
          ValueChanged="Slider_ValueChanged" IsSelectionRangeEnabled="True" SelectionStart="0" 

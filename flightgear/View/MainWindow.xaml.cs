@@ -1,24 +1,11 @@
 ﻿using FlightSimulatorApp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Control = FlightSimulatorApp.Control;
 
 namespace flightgear
 {
-    
+
     public partial class MainWindow : Window
     {
         Control panelControl;
@@ -44,7 +31,6 @@ namespace flightgear
             try
             {
                 ((MainWindow)Application.Current.MainWindow).Connect(ip, Int32.Parse(port));
-                this.Close();
             }
             catch
             {
@@ -52,8 +38,16 @@ namespace flightgear
             }
         }
 
+        private void Disconnect_onClick(object sender, RoutedEventArgs e)
+        {
+                panelControl.Disconnect();
+                MessageBox.Show("Отключено");
+        
+        }
+
         internal void Connect(string ip, int port)
         {
+            var messageError = "Не удалось подключиться. Проверьте ip и port";
             try
             {
                 panelControl.Connect(ip, port);
@@ -65,23 +59,19 @@ namespace flightgear
                 }
                 else
                 {
-                    MessageBox.Show("МММ кайф ничего не работает");
+                    MessageBox.Show(messageError);
                 }
             }
             catch
             {
-                MessageBox.Show("Не удалось подключиться. Проверьте ip и port");
+                MessageBox.Show(messageError);
             }
-        }
-        private void Disconnect(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Something");
         }
         private void TestDrive(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Something");
         }
-        private void TakeOff(object sender, RoutedEventArgs e)
+        private void Start_onClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Something");
         }

@@ -7,7 +7,7 @@ namespace FlightSimulatorApp
     interface IModel : INotifyPropertyChanged
     {
         void Connect(string ip, int port);
-        //void Disconnect();
+        void Disconnect();
         //void Start();
         bool IsConnected();
 

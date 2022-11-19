@@ -1,10 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Net.Sockets;
-using System.Threading;
-using System.Windows;
-using System.Windows.Media;
 
 namespace FlightSimulatorApp
 {
@@ -16,6 +12,8 @@ namespace FlightSimulatorApp
 
         //для будущих контроллов
         public event PropertyChangedEventHandler PropertyChanged;
+        //для консольки если что
+        private string Status;
 
         
         public Model() {  }
@@ -26,6 +24,7 @@ namespace FlightSimulatorApp
             {
                 tcpClient = new TcpClient();
                 tcpClient.Connect(ip, port);
+                Status = "connected";
                 
             }
             catch 
@@ -33,7 +32,16 @@ namespace FlightSimulatorApp
                 Console.WriteLine("Невозможно подключиться");
             }
         }
-      
+
+        public void Disconnect()
+        {
+            if (tcpClient != null)
+            {
+                tcpClient.Close();
+                
+            }
+            Status = "disconnected";
+        }
         public bool IsConnected() { return tcpClient.Connected; }
        
     }

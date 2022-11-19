@@ -13,17 +13,17 @@ namespace FlightSimulatorApp
             this.model = model;
             
         }
-
-       
-        //public void Disconnect()
-        //{
-        //    model.Disconnect();
-        //}
+        
         public void Connect(string ip, int port)
         {
             model.Connect(ip, port);
         }
-       
+
+        public void Disconnect()
+        {
+            model.Disconnect();
+        }
+
         public bool IsConnected()
         {
             return model.IsConnected();
